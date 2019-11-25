@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhg.javakc.modules.supply.suppliestype.dao.TypeDao">
+	
+    <select id="queryAllType" resultType="java.util.HashMap">
+
+        SELECT  TYPE_ID "id",TYPE_NAME "name",TYPE_PID "pId",TYPE_SHORT "typeShort",
+        DECODE(TYPE_OPEN,2,'false',1,'true') "open",TYPE_LEVEL "typelevel"
+        FROM SUPPLIESTYPE WHERE 1=1 ORDER BY TYPE_ORDER ASC
+        <if test="typeName!='' and typeName!=null">
+            AND TYPE_NAME LIKE  '%'||#{name}||'%'
+        </if>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO SUPPLIESTYPE
+        (TYPE_ID,TYPE_NAME,TYPE_SHORT,TYPE_PID,TYPE_OPEN,TYPE_ORDER,TYPE_LEVEL)
+        VALUES (#{typeId},#{typeName},#{typeShort},#{typePid},#{typeOpen},#{typeOrder},#{typeLevel})
+    </insert>
+
+    <select id="queryByTypeId" resultType="java.util.HashMap">
+
+        SELECT  TYPE_ID "id",TYPE_NAME "name",TYPE_PID "pId",TYPE_ORDER "typeOrder",TYPE_SHORT "typeShort",
+        DECODE(TYPE_OPEN,2,'false',1,'true') "typeOpen",TYPE_LEVEL "typeLevel"
+        FROM SUPPLIESTYPE WHERE 1=1 AND TYPE_PID=#{typeId} ORDER BY TYPE_ORDER ASC
+    </select>
+
+    <select id="get" resultType="com.zhg.javakc.modules.supply.suppliestype.entity.TypeEntity">
+        SELECT  TYPE_ID "typeId",TYPE_NAME "typeName",TYPE_SHORT "typeShort",
+        TYPE_PID "pId",TYPE_ORDER "typeOrder",
+        DECODE(TYPE_OPEN,2,'false',1,'true') "typeOpen",TYPE_LEVEL "typeLevel"
+        FROM SUPPLIESTYPE WHERE TYPE_ID=#{typeId}
+    </select>
+
+    <update id="updateType">
+        UPDATE SUPPLIESTYPE SET TYPE_NAME=#{typeName},TYPE_SHORT=#{typeShort},
+        TYPE_OPEN=#{typeOpen},TYPE_ORDER=#{typeOrder},TYPE_LEVEL=#{typeLevel}
+        WHERE TYPE_ID=#{typeId}
+    </update>
+
+    <delete id="deleteType">
+        DELETE FROM SUPPLIESTYPE WHERE TYPE_ID = #{typeId}
+
+    </delete>
+
+
+</mapper>
