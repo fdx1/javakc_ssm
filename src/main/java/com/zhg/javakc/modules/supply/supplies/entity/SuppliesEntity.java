@@ -43,4 +43,52 @@ public class SuppliesEntity {
      *物资类型
      */
     private String goodsMold;
+    /**
+     * 限制合同采购 1:是 2:否
+     */
+    private String goodsPact;
+    /**
+     * 物资组
+      */
+    private String goodsWuzizu;
+    /**
+     * 保质期
+     */
+    private String goodsDate;
+    /**
+     * 税率
+     */
+    private String rate;
+    /**
+     * 基本单位
+     */
+    private String goodsBasicu;
+    /**
+     * 生产单位
+     */
+    private String goodsProdu;
+    /**
+     * 净重
+     */
+    private String goodsSuttle;
+    /**
+     * 毛重
+     */
+    private String goodsRough;
+    /**
+     * 体积长
+     */
+    private String goodsLength;
+    /**
+     * 体积宽
+     */
+    private String goodsWide;
+    /**
+     * 体积高
+     */
+    private String goodsHigh;
+    /**
+     *状态 1:启用 2:停用
+     */
+    private String goodsState;
 }
