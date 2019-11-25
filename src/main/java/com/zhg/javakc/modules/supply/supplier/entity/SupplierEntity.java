@@ -77,21 +77,19 @@ public class SupplierEntity extends BaseEntity<SupplierEntity> {
     private String supplierMail;
 
     /**
-     * 添加日期
+     * 门户
      */
-    private Date supplierDate;
+    private String supplierMh;
 
     /**
-     * 修改日期
+     * 合同
      */
-    private Date supplierUdate;
+    private String supplierHt;
 
     /**
      * 组织名
      */
     private String oriName;
-
-
 
     public String getSupplierID() {
         return supplierID;
@@ -197,20 +195,20 @@ public class SupplierEntity extends BaseEntity<SupplierEntity> {
         this.supplierMail = supplierMail;
     }
 
-    public Date getSupplierDate() {
-        return supplierDate;
+    public String getSupplierMh() {
+        return supplierMh;
     }
 
-    public void setSupplierDate(Date supplierDate) {
-        this.supplierDate = supplierDate;
+    public void setSupplierMh(String supplierMh) {
+        this.supplierMh = supplierMh;
     }
 
-    public Date getSupplierUdate() {
-        return supplierUdate;
+    public String getSupplierHt() {
+        return supplierHt;
     }
 
-    public void setSupplierUdate(Date supplierUdate) {
-        this.supplierUdate = supplierUdate;
+    public void setSupplierHt(String supplierHt) {
+        this.supplierHt = supplierHt;
     }
 
     public String getOriName() {
@@ -221,25 +219,5 @@ public class SupplierEntity extends BaseEntity<SupplierEntity> {
         this.oriName = oriName;
     }
 
-    @Override
-    public String toString() {
-        return "SupplierEntity{" +
-                "supplierID='" + supplierID + '\'' +
-                ", supplierType01='" + supplierType01 + '\'' +
-                ", supplierNbzz='" + supplierNbzz + '\'' +
-                ", supplierName='" + supplierName + '\'' +
-                ", supplierType02='" + supplierType02 + '\'' +
-                ", supplierJname='" + supplierJname + '\'' +
-                ", supplierFr='" + supplierFr + '\'' +
-                ", supplierFrphone='" + supplierFrphone + '\'' +
-                ", supplierAddress='" + supplierAddress + '\'' +
-                ", supplierCode='" + supplierCode + '\'' +
-                ", supplierLxr='" + supplierLxr + '\'' +
-                ", supplierLphone='" + supplierLphone + '\'' +
-                ", supplierMail='" + supplierMail + '\'' +
-                ", supplierDate=" + supplierDate +
-                ", supplierUdate=" + supplierUdate +
-                ", oriName='" + oriName + '\'' +
-                '}';
-    }
+
 }
