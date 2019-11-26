@@ -91,6 +91,7 @@ public class SupplierEntity extends BaseEntity<SupplierEntity> {
      */
     private String oriName;
 
+
     public String getSupplierID() {
         return supplierID;
     }
@@ -218,6 +219,4 @@ public class SupplierEntity extends BaseEntity<SupplierEntity> {
     public void setOriName(String oriName) {
         this.oriName = oriName;
     }
-
-
 }
