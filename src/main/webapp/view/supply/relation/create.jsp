@@ -35,7 +35,8 @@
 							</div>
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="物资..." name="goodsId">
+									<input class="form-control" id="good" name="ids" type="hidden"/>
+									<input type="text" class="form-control" placeholder="物资..." name="goodsId" id="goods">
 									<span class="input-group-btn">
                                   <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button" id="goodsId"></button>
                                 </span>

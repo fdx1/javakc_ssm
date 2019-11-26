@@ -37,9 +37,9 @@
 					        </thead>
 					        <tbody>
 					        	<c:set var="vs"></c:set>
-					        	<c:forEach var="e" items="${page.list }" varStatus="v">
+					        	<c:forEach var="e" items="${list }" varStatus="v">
 						            <tr>
-										<td><input type="checkbox" name="ids" value="${e.goodsId }"/></td>
+										<td><input type="checkbox" name="ids" value="${e.goodsId }" value1="${e.goodsName}"/></td>
 										<td>${e.goodsId }</td>
 										<td>${e.goodsName}</td>
 										<td>${e.goodsJiancheng }</td>
@@ -53,10 +53,36 @@
 					            </c:forEach>
 					        </tbody>
 					    </table>
-				    <div class="page">${page}</div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label"></label>
+                        <div class="col-sm-7">
+                            <input type="submit" value="确定" class="btn btn-primary" id="ascertain"/>
+                        </div>
+                    </div>
 			     </div>
 			     </form>
 			</div>
 		</div>
+        <script type="text/javascript">
+            $(function()
+            {
+                var index = parent.layer.getFrameIndex(window.name);
+
+                $('#ascertain').click(function()
+                {
+
+                    {
+
+                        var id = $('[name=ids]:checked').val();
+                        var name = $('[name=ids]:checked').attr('value1');
+
+                        parent.$('#goods').val(name);
+                        parent.$('#good').val(id);
+                        parent.layer.close(index);
+                    }
+                });
+
+            });
+        </script>
 	</body>
 </html>
