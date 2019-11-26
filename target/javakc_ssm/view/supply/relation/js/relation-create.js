@@ -19,11 +19,11 @@ $(function()
 	{
 		layer.open({
 			type: 2,
-			title: '供应商1111',
+			title: '供应商',
 			shadeClose: true,
 			shade: 0.8,
 			area: ['65%', '65%'],
-			content: root+'/relation/createZz.do'
+			content:root+'/relation/createZz.do'
 		});
 	});
 });

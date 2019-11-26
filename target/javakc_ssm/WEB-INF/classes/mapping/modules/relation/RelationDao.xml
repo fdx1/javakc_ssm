@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhg.javakc.modules.supply.relation.dao.RelationDao">
-
     <select id="findList" resultType="com.zhg.javakc.modules.supply.relation.entity.RelationEntity">
         SELECT SS_ID AS ssId, ORI_ID AS oriId, GOODS_ID AS goodsId, SUPPLIER_ID AS supplierId, ORI_NAME AS oriName, RATE AS rate
         FROM SUPPLIER_SUPPLIES WHERE 1=1
-
     </select>
 
     <delete id="delete">
@@ -29,5 +27,8 @@
         INSERT INTO SUPPLIER_SUPPLIES (SS_ID,ORI_ID,GOODS_ID,SUPPLIER_ID,ORI_NAME,RATE)
         VALUES (#{ssId},#{oriId},#{goodsId},#{supplierId},#{oriName},#{rate})
     </insert>
+
+
+
 
 </mapper>

@@ -4,8 +4,8 @@ import com.zhg.javakc.base.page.Page;
 import com.zhg.javakc.base.util.CommonUtil;
 import com.zhg.javakc.modules.supply.relation.entity.RelationEntity;
 import com.zhg.javakc.modules.supply.relation.service.RelationService;
-import com.zhg.javakc.modules.system.menu.entity.MenuEntity;
-import com.zhg.javakc.modules.test.entity.TestEntity;
+import com.zhg.javakc.modules.supply.supplier.entity.SupplierEntity;
+import com.zhg.javakc.modules.supply.supplier.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,6 +26,9 @@ public class RelationController {
 
     @Autowired
     RelationService relationService;
+    @Autowired
+    SupplierService supplierService;
+
 
     @RequestMapping("/queryRelation")
     public ModelAndView queryRelation(RelationEntity relationEntity, HttpServletRequest request, HttpServletResponse response) {
@@ -68,9 +71,10 @@ public class RelationController {
     }
 
     @RequestMapping("/createZz")
-    public String createParent(RelationEntity entity, ModelMap model)
+    public String createParent(SupplierEntity entity, ModelMap model)
     {
-        model.put("page", relationService.findList(entity));
+        model.put("list",supplierService.findList(entity));
+
         return "supply/relation/create-zz";
     }
 }

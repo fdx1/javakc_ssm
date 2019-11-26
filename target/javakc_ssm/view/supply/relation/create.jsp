@@ -26,7 +26,8 @@
 							</div>
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="供应商..." name="supplierId">
+									<input class="form-control" id="menupidValue" name="ids" type="hidden"/>
+									<input type="text" class="form-control" placeholder="供应商..." name="supplierId" id="supplierIds">
 									<span class="input-group-btn">
                                   <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button" id="supplierId"></button>
                                 </span>
@@ -72,5 +73,5 @@
 	</body>
 	<script type="text/javascript" src="${path }/static/js/plugins/file-input/fileinput.min.js"></script>
 
-	<script type="text/javascript" src="${ path}/view/relation/js/relation-create.js"></script>
+	<script type="text/javascript" src="${ path}/view/supply/relation/js/relation-create.js"></script>
 </html>
