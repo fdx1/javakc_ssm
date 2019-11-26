@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>测试添加页面</title>
-		<%@ include file="../../common/jsp/header.jsp"%>
+		<%@ include file="../../../common/jsp/header.jsp"%>
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
 	</head>
 	<body>
@@ -21,14 +21,14 @@
 									<input type="text" class="form-control" placeholder="组织..." name="oriId">
 									<span class="input-group-btn">
                                   <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button" id="oriId"></button>
-                                </span>
+                                </span> 
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="供应商..." name="supplierId">
 									<span class="input-group-btn">
-                                  <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button"></button>
+                                  <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button" id="supplierId"></button>
                                 </span>
 								</div>
 							</div>
@@ -71,6 +71,6 @@
 		</div>
 	</body>
 	<script type="text/javascript" src="${path }/static/js/plugins/file-input/fileinput.min.js"></script>
-	<script type="text/javascript" src="./js/dictionary.js"></script>
-	<script type="text/javascript" src="${path}/view/relation/js/relation-create.js"></script>
+
+	<script type="text/javascript" src="${ path}/view/relation/js/relation-create.js"></script>
 </html>

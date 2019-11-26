@@ -42,11 +42,11 @@
 					        </thead>
 					        <tbody>
 					        	<c:set var="vs"></c:set>
-					        	<c:forEach var="e" items="${page.list }" varStatus="v">
+					        	<c:forEach var="e" items="${page.list}" varStatus="v">
 						            <tr>
-						                <td><input type="checkbox" name="ids" value="${e.testId }"/></td>
-						                <td>${e.testName }</td>
-						                <td><zhg:show  codeTp="sex" value="${e.testSex }" /></td>
+						                <td><input type="checkbox" name="ids" value="${e.testId}"/></td>
+						                <td>${e.testName}</td>
+						                <td><zhg:show  codeTp="sex" value="${e.testSex}" /></td>
 						                <td><fmt:formatDate value="${e.testDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
 						            </tr>
 					            </c:forEach>

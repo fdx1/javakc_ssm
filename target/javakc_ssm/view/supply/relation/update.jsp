@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>测试添加页面</title>
-		<%@ include file="../../common/jsp/header.jsp"%>
+		<%@ include file="../../../common/jsp/header.jsp"%>
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
 	</head>
 	<body>

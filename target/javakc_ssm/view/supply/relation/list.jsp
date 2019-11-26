@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>关系展示列表页面</title>
-    <%@ include file="../../common/jsp/header.jsp"%>
+    <%@ include file="../../../common/jsp/header.jsp"%>
 </head>
 <body>
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -24,7 +24,7 @@
                     <input class="form-control" id="sear" name="testName" value="${testEntity.testName }" type="text" placeholder="查询内容 回车搜索"/>
                 </div>
                 <div class="col-sm-4">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" id="create" name="relation/create.jsp">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" id="create" name="supply/relation/create.jsp">
                             <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>新增
                         </button>
                     </div>

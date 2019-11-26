@@ -30,7 +30,7 @@ public class RelationController {
     @RequestMapping("/queryRelation")
     public ModelAndView queryRelation(RelationEntity relationEntity, HttpServletRequest request, HttpServletResponse response) {
 
-        ModelAndView modelAndView = new ModelAndView("relation/list");
+        ModelAndView modelAndView = new ModelAndView("supply/relation/list");
         Page<RelationEntity> page = relationService.queryRelation(relationEntity, new Page<RelationEntity>(request, response));
         modelAndView.addObject("page", page);
         return modelAndView;
@@ -47,7 +47,7 @@ public class RelationController {
     public String view(String ids, ModelMap modelMap){
         RelationEntity relationEntity =relationService.get(ids);
         modelMap.put("relationEntity",relationEntity);
-        return "relation/update";
+        return "supply/relation/update";
     }
 
 
@@ -57,12 +57,6 @@ public class RelationController {
         return "redirect:queryRelation.do";
     }
 
-    @RequestMapping(value="/createParent")
-    public String createParent(RelationEntity entity, ModelMap model) throws Exception
-    {
-        model.put("page", relationService.findList(entity));
-        return "system/menu/create-parent";
-    }
 
     //新增
     @RequestMapping("/save")
@@ -71,5 +65,12 @@ public class RelationController {
         relationEntity.setSsId(CommonUtil.uuid());
         relationService.save(relationEntity);
         return "redirect:queryRelation.do";
+    }
+
+    @RequestMapping("/createZz")
+    public String createParent(RelationEntity entity, ModelMap model)
+    {
+        model.put("page", relationService.findList(entity));
+        return "supply/relation/create-zz";
     }
 }
