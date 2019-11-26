@@ -12,19 +12,6 @@
 				<div class="col-sm-12">
 					<!-- ------------按钮组 start------------ -->
 	                <div class="alert alert-success" role="alert">物资详细信息</div>
-	                <div class="col-sm-8">
-	                	<div class="btn-group hidden-xs" role="group">
-                			<button type="button" class="btn btn-primary" data-toggle="modal" id="create" name="supply/supplies/create.jsp">
-	                            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>添加
-	                        </button>
-	                        <button type="button" class="btn btn-success" data-toggle="modal" id="update" name="supplies/view.do">
-	                            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>修改
-	                        </button>
-	                        <button type="button" class="btn btn-danger" data-toggle="modal" id="delete" name="supplies/delete.do">
-	                            <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>删除
-	                        </button>
-		                 </div>
-	                </div>
 	                <div class="col-sm-4">
 	                	<input class="form-control" id="search" name="goodsName" value="${suppliesEntity.goodsName }" type="text" placeholder="查询名称 回车搜索"/>
 <%--	                	<input class="form-control" id="search" name="goodsJiancheng" value="${suppliesEntity.goodsJiancheng }" type="text" placeholder="查询简称 回车搜索"/>--%>

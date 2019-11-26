@@ -6,6 +6,8 @@ import com.zhg.javakc.modules.supply.relation.entity.RelationEntity;
 import com.zhg.javakc.modules.supply.relation.service.RelationService;
 import com.zhg.javakc.modules.supply.supplier.entity.SupplierEntity;
 import com.zhg.javakc.modules.supply.supplier.service.SupplierService;
+import com.zhg.javakc.modules.supply.supplies.entity.SuppliesEntity;
+import com.zhg.javakc.modules.supply.supplies.service.SuppliesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,6 +30,8 @@ public class RelationController {
     RelationService relationService;
     @Autowired
     SupplierService supplierService;
+    @Autowired
+    SuppliesService suppliesService;
 
 
     @RequestMapping("/queryRelation")
@@ -76,5 +80,13 @@ public class RelationController {
         model.put("list",supplierService.findList(entity));
 
         return "supply/relation/create-zz";
+    }
+
+    @RequestMapping("/createWz")
+    public String createParen(SuppliesEntity entity, ModelMap model)
+    {
+        model.put("list",suppliesService.findList(entity));
+
+        return "supply/relation/create-wz";
     }
 }
