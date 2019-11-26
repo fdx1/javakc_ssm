@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhg.javakc.modules.supply.supplies.dao.SuppliesDao">
+
+    <sql id="all_goods">
+    GOODS_ID,
+    TYPE_ID,
+    GOODS_NAME,
+    GOODS_GUIGE,
+    GOODS_JIANCHENG,
+    GOODS_COMMENT,
+    GOODS_PICTURE,
+    GOODS_FUMA,
+    GOODS_MOLD,
+    GOODS_PACT,
+    GOODS_WUZIZU,
+    GOODS_DATE,
+    RATE,
+    GOODS_BASICU,
+    GOODS_PRODU,
+    GOODS_SUTTLE,
+    GOODS_ROUGH,
+    GOODS_LENGTH,
+    GOODS_WIDE,
+    GOODS_HIGH,
+    GOODS_STATE,
+    UPDATEDATE,
+    GOODS_UNIT
+</sql>
+
+    <resultMap id="goodsMap" type="com.zhg.javakc.modules.supply.supplies.entity.SuppliesEntity">
+        <id property="goodsId" column="GOODS_ID"/>
+        <result property="typeId" column="TYPE_ID"/>
+        <result property="goodsName" column="GOODS_NAME"/>
+        <result property="goodsGuige" column="GOODS_GUIGE"/>
+        <result property="goodsJiancheng" column="GOODS_JIANCHENG"/>
+        <result property="goodsComment" column="GOODS_COMMENT"/>
+        <result property="goodsPicture" column="GOODS_PICTURE"/>
+        <result property="goodsFuma" column="GOODS_FUMA"/>
+        <result property="goodsMold" column="GOODS_MOLD"/>
+        <result property="goodsPact" column="GOODS_PACT"/>
+        <result property="goodsWuzizu" column="GOODS_WUZIZU"/>
+        <result property="goodsDate" column="GOODS_DATE"/>
+        <result property="rate" column="RATE"/>
+        <result property="goodsBasicu" column="GOODS_BASICU"/>
+        <result property="goodsSuttle" column="GOODS_SUTTLE"/>
+        <result property="goodsRough" column="GOODS_ROUGH"/>
+        <result property="goodsProdu" column="GOODS_PRODU"/>
+        <result property="goodsLength" column="GOODS_LENGTH"/>
+        <result property="goodsWide" column="GOODS_WIDE"/>
+        <result property="goodsHigh" column="GOODS_HIGH"/>
+        <result property="goodsState" column="GOODS_STATE"/>
+        <result property="updateDate" column="UPDATEDATE"/>
+        <result property="goodsUnit" column="GOODS_UNIT"/>
+    </resultMap>
+
+    <select id="findList" resultMap="goodsMap">
+        SELECT
+        <include refid="all_goods"/>
+        FROM SUPPLIES WHERE 1=1
+        <if test="goodsName!='' and goodsName!=null ">
+           AND GOODS_NAME LIKE '%'||#{goodsName}||'%'
+        </if>
+        <if test="goodsJiancheng!='' and goodsJiancheng!=null ">
+            AND GOODS_JIANCHENG LIKE '%'||#{goodsJiancheng}||'%'
+        </if>
+    </select>
+
+    <!--    <select id="findList" resultType="com.zhg.javakc.modules.test.entity.TestEntity">-->
+    <!--        SELECT  TEST_ID AS testId,TEST_NAME AS testName,TEST_SEX AS testSex,TEST_DATE AS testDate-->
+    <!--        FROM DATA_TEST WHERE 1=1-->
+    <!--        <if test="testName!='' and testName!=null">-->
+    <!--            AND TEST_NAME LIKE  '%'||#{testName}||'%'-->
+    <!--        </if>-->
+    <!--    </select>-->
+
+        <insert id="insert">
+            INSERT INTO SUPPLIES (<include refid="all_goods"/>)
+            VALUES (#{goodsId},#{typeId},#{goodsName},#{goodsGuige},#{goodsJiancheng},#{goodsComment},
+            #{goodsPicture},#{goodsFuma},#{goodsMold},#{goodsPact},
+            #{goodsWuzizu},#{goodsDate},#{rate},#{goodsBasicu},#{goodsSuttle},#{goodsRough},#{goodsProdu},
+            #{goodsLength},#{goodsWide},#{goodsHigh},#{goodsState},#{updateDate},#{goodsUnit})
+        </insert>
+
+        <delete id="delete">
+            DELETE FROM SUPPLIES WHERE GOODS_ID IN
+            <foreach collection="array" item="goodsId" open="(" separator="," close= ")">
+                #{goodsId}
+            </foreach>
+        </delete>
+
+        <select id="get" resultMap="goodsMap">
+            SELECT<include refid="all_goods"/> FROM SUPPLIES WHERE GOODS_ID=#{0}
+        </select>
+
+        <update id="update" >
+            UPDATE SUPPLIES SET GOODS_NAME=#{goodsName },GOODS_GUIGE=#{goodsGuige},GOODS_JIANCHENG=#{goodsJiancheng},
+            GOODS_COMMENT=#{goodsComment},GOODS_PICTURE=#{goodsPicture},GOODS_FUMA=#{goodsFuma},GOODS_MOLD=#{goodsMold},
+            GOODS_PACT=#{goodsPact},GOODS_WUZIZU=#{goodsWuzizu},GOODS_DATE=#{goodsDate},RATE=#{rate},
+            GOODS_BASICU=#{goodsBasicu},GOODS_SUTTLE=#{goodsSuttle},GOODS_ROUGH=#{goodsRough},GOODS_PRODU=#{goodsProdu},
+            GOODS_LENGTH=#{goodsLength},GOODS_WIDE=#{goodsWide},GOODS_HIGH=#{goodsHigh},GOODS_UNIT=#{goodsUnit}
+            WHERE GOODS_ID=#{goodsId}
+        </update>
+
+
+<!--    <select id="findList" resultType="com.zhg.javakc.modules.test.entity.TestEntity">-->
+<!--        SELECT  TEST_ID AS testId,TEST_NAME AS testName,TEST_SEX AS testSex,TEST_DATE AS testDate-->
+<!--        FROM DATA_TEST WHERE 1=1-->
+<!--        <if test="testName!='' and testName!=null">-->
+<!--            AND TEST_NAME LIKE  '%'||#{testName}||'%'-->
+<!--        </if>-->
+<!--    </select>-->
+
+
+
+<!--    <select id="get" resultType=  "com.zhg.javakc.modules.test.entity.TestEntity">-->
+<!--        SELECT  TEST_ID AS testId,TEST_NAME AS testName,TEST_SEX AS testSex,TEST_DATE AS testDate-->
+<!--        FROM DATA_TEST WHERE TEST_ID=#{0}-->
+<!--    </select>-->
+
+<!--    <update id="update">-->
+<!--        UPDATE DATA_TEST SET TEST_NAME=#{testName},TEST_SEX=#{testSex},TEST_DATE=#{testDate}-->
+<!--        WHERE TEST_ID=#{testId}-->
+<!--    </update>-->
+
+
+
+
+</mapper>
