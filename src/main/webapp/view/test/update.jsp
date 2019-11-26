@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>测试添加页面</title>
+		<title>测试修改页面</title>
 		<%@ include file="../../common/jsp/header.jsp"%>
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
 	</head>
