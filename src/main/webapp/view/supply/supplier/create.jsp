@@ -4,8 +4,22 @@
 	<head>
 		<title>供应商添加页面</title>
 		<%@ include file="../../../common/jsp/header.jsp"%>
+		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		<script type="text/javascript" src="<%=path%>/static/js/plugins/ztree/jquery.ztree.core-3.5.js"></script>
+		<link href="<%=path%>/static/css/plugins/ztree/zTreeStyle/zTreeStyle.css" rel="stylesheet">
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
 	</head>
+	<script>
+		function jjj() {
+			var xx=document.getElementById("supplierType01").valueOf();
+			alert(xx)
+			if (xx!=0){
+				document.getElementById("oriName").style.display="none";
+			}else {
+				document.getElementById("oriName").style.display="";
+			}
+		}
+	</script>
 	<body>
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div>
@@ -18,12 +32,14 @@
                        <div class="form-group">
                           <label class="col-sm-1 control-label">供应商类型</label>
                           <div class="col-sm-3 dropdown">
-                              <zhg:select codeTp="type01" name="supplierType01" cls="form-control" def="true"></zhg:select>
+                              <zhg:select codeTp="type01" id="supplierType01" onChange="jjj()" name="supplierType01" cls="form-control" def="true"></zhg:select>
                           </div>
-                          <label class="col-sm-1 control-label">供应商内部组织</label>
-						   <div class="col-sm-3">
-							   <input class="form-control" type="text" name="oriName" />
-						   </div>
+							   <div class="form-group" id="oriName">
+								   <label class="col-sm-1 control-label" >供应商内部组织</label>
+								   <div class="col-sm-3">
+									   <input class="form-control" type="text"  name="oriName" />
+									</div>
+						   		</div>
                        </div>
                        <div class="form-group">
                           <label class="col-sm-1 control-label">供应商名称</label>
