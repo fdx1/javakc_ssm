@@ -26,4 +26,16 @@ $(function()
 			content:root+'/relation/createZz.do'
 		});
 	});
+
+	$('#oriId').click(function()
+	{
+		layer.open({
+			type: 2,
+			title: '组织',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['65%', '65%'],
+			content:root+'/org/queryAllOrg.do'
+		});
+	});
 });

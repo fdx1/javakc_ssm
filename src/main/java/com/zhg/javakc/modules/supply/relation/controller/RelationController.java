@@ -2,6 +2,8 @@ package com.zhg.javakc.modules.supply.relation.controller;
 
 import com.zhg.javakc.base.page.Page;
 import com.zhg.javakc.base.util.CommonUtil;
+import com.zhg.javakc.modules.supply.organization.entity.OrgEntity;
+import com.zhg.javakc.modules.supply.organization.service.OrgService;
 import com.zhg.javakc.modules.supply.relation.entity.RelationEntity;
 import com.zhg.javakc.modules.supply.relation.service.RelationService;
 import com.zhg.javakc.modules.supply.supplier.entity.SupplierEntity;
@@ -32,6 +34,8 @@ public class RelationController {
     SupplierService supplierService;
     @Autowired
     SuppliesService suppliesService;
+    @Autowired
+    OrgService orgService;
 
 
     @RequestMapping("/queryRelation")
@@ -86,6 +90,14 @@ public class RelationController {
     public String createParen(SuppliesEntity entity, ModelMap model)
     {
         model.put("list",suppliesService.findList(entity));
+
+        return "supply/relation/create-wz";
+    }
+
+    @RequestMapping("/createOrg")
+    public String createPare(OrgEntity entity, ModelMap model)
+    {
+        model.put("list",orgService.queryAllOrg());
 
         return "supply/relation/create-wz";
     }
