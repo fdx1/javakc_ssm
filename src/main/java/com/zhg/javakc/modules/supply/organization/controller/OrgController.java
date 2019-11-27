@@ -50,9 +50,6 @@ public class OrgController {
             //删除当前节点
             orgService.deleteOri(oriId);
         }
-
-
-
         return "supply/organization/list";
     }
 
