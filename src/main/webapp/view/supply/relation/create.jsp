@@ -18,7 +18,8 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="组织..." name="oriId">
+									<input class="form-control" id="ori" name="ids" type="hidden"/>
+									<input type="text" class="form-control" placeholder="组织..." name="oriId" id="orig">
 									<span class="input-group-btn">
                                   <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button" id="oriId"></button>
                                 </span> 
@@ -52,9 +53,10 @@
 							</div>
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="收货组织..." name="oriName">
+									<input class="form-control" id="o" name="ids" type="hidden"/>
+									<input type="text" class="form-control" placeholder="收货组织..." name="oriName"id="d">
 									<span class="input-group-btn">
-                                  <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button"></button>
+                                  <button class="btn btn-default glyphicon glyphicon-zoom-in" type="button" id="oriIds"></button>
                                 </span>
 								</div>
 							</div>

@@ -54,7 +54,7 @@
                           	</div>
                        	</div>
                        	<div class="form-group">
-                          	<label class="col-sm-2 control-label" for="roleremark">菜单状态</label>
+                          	<label class="col-sm-2 control-label" >菜单状态</label>
                           	<div class="col-sm-10">
                           		<div class="switch switch-mini" >
                           			<input type="checkbox" name="menuState" ${entity.menuState==0?"checked":"" } value="0"

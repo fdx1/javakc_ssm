@@ -35,7 +35,19 @@ $(function()
 			shadeClose: true,
 			shade: 0.8,
 			area: ['65%', '65%'],
-			content:root+'/org/queryAllOrg.do'
+			content:root+'/relation/createOrg.do'
+		});
+	});
+
+	$('#oriIds').click(function()
+	{
+		layer.open({
+			type: 2,
+			title: '收货组织',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['65%', '65%'],
+			content:root+'/relation/createOr.do'
 		});
 	});
 });

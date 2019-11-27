@@ -68,18 +68,21 @@
             {
                 var index = parent.layer.getFrameIndex(window.name);
 
-                $('#ascertain').click(function()
-                {
+                $('#ascertain').click(function() {
+					var count = $('[name=ids]:checked').length;
+					if (count == 0) {
+						alert("怎么着, 不选是不?");
+						return;
+					} else {
 
-                    {
+						var id = $('[name=ids]:checked').val();
+						var name = $('[name=ids]:checked').attr('value1');
 
-                        var id = $('[name=ids]:checked').val();
-                        var name = $('[name=ids]:checked').attr('value1');
+						parent.$('#goods').val(name);
+						parent.$('#good').val(id);
+						parent.layer.close(index);
+					}
 
-                        parent.$('#goods').val(name);
-                        parent.$('#good').val(id);
-                        parent.layer.close(index);
-                    }
                 });
 
             });

@@ -31,7 +31,7 @@
 						<span>供应商名称：</span>
 					</div>
 					<div class="col-sm-4">
-						<input class=" form-control" id="search" name="supplierName" value="${supplierEntity.supplierName}" type="supplier" placeholder="查询内容 回车搜索"/>
+						<input class=" form-control" id="search" name="supplierName" value="${supplierEntity.supplierName}" type="test" placeholder="查询内容 回车搜索"/>
 				    </div>
 				</div>
 				<!-- ------------按钮组 end------------ -->

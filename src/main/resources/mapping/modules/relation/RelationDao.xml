@@ -4,6 +4,9 @@
     <select id="findList" resultType="com.zhg.javakc.modules.supply.relation.entity.RelationEntity">
         SELECT SS_ID AS ssId, ORI_ID AS oriId, GOODS_ID AS goodsId, SUPPLIER_ID AS supplierId, ORI_NAME AS oriName, RATE AS rate
         FROM SUPPLIER_SUPPLIES WHERE 1=1
+        <if test="supplierId!='' and supplierId!=null">
+            AND SUPPLIER_ID LIKE  '%'||#{supplierId}||'%'
+        </if>
     </select>
 
     <delete id="delete">

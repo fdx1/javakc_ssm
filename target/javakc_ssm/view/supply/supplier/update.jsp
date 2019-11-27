@@ -4,6 +4,7 @@
 	<head>
 		<title>测试添加页面</title>
 		<%@ include file="../../../common/jsp/header.jsp"%>
+		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
 	</head>
 	<body>
@@ -22,8 +23,8 @@
 								<zhg:select codeTp="type01" name="supplierType01" cls="form-control" def="true" value="${supplierEntity.supplierType01}"></zhg:select>
 							</div>
 							<label class="col-sm-1 control-label">供应商内部组织</label>
-							<div class="col-sm-3">
-								<input class="form-control" type="text" name="oriName" value="${supplierEntity.oriName}"/>
+							<div class="col-sm-3" >
+								<input class="form-control" type="text"   name="oriName" value="${supplierEntity.oriName}"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -74,16 +75,33 @@
 								<input class="form-control" type="text"  name="supplierMail" value="${supplierEntity.supplierMail}"/>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-1 control-label">是否启用门户</label>
+						<div>
+							<label class="col-sm-1 ">是否必须合同</label>
 							<div class="col-sm-3">
-								<input class="form-control btn-sm" type="checkbox"  name="supplierMh" value="${supplierEntity.supplierMh}"/>
+								<c:choose>
+									<c:when test="${supplierEntity.supplierHt==1}">
+										<input class="btn-sm" type="radio"  name="supplierHt" checked value="1"/>是
+										<input class="btn-sm" type="radio"  name="supplierHt"  value=""/>否
+									</c:when>
+									<c:when test="${supplierEntity.supplierHt==null}">
+										<input class="btn-sm" type="radio"  name="supplierHt" checked value="1"/>是
+										<input class=btn-sm" type="radio"  name="supplierHt"  value=""/>否
+									</c:when>
+								</c:choose>
 							</div>
-							<label class="col-sm-1 control-label">是否必须合同</label>
+							<label class="col-sm-1">是否启用门户</label>
 							<div class="col-sm-3">
-								<input class="form-control btn-sm" type="checkbox"  name="supplierHt"  value="${supplierEntity.supplierHt}"/>
+								<c:choose>
+									<c:when test="${supplierEntity.supplierMh==1}">
+										<input class=" btn-sm" type="radio"  name="supplierMh" checked value="1"/>是
+										<input class=" btn-sm" type="radio"  name="supplierMh"  value=""/>否
+									</c:when>
+									<c:when test="${supplierEntity.supplierMh==null}">
+										<input class=" btn-sm" type="radio"  name="supplierMh" checked value="1"/>是
+										<input class=" btn-sm" type="radio"  name="supplierMh"  value=""/>否
+									</c:when>
+								</c:choose>
 							</div>
-
 						</div>
 					</fieldset>
 					<fieldset>

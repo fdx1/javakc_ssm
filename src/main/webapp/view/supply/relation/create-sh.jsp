@@ -51,9 +51,8 @@
 				var ids= $('#oriId').val()
 				var index = parent.layer.getFrameIndex(window.name);
 
-
-				parent.$('#orig').val(name);
-				parent.$('#ori').val(ids);
+				parent.$('#d').val(name);
+				parent.$('#o').val(ids);
 				parent.layer.close(index);
 
 

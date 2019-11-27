@@ -13,11 +13,11 @@
                 <!-- ------------按钮组 start------------ -->
                 <div class="col-sm-4">
                     <span>供应商</span>
-                    <input class="form-control" id="searc" name="testName" value="${testEntity.testName }" type="text" placeholder="查询内容 回车搜索"/>
+                    <input class="form-control" id="search" name="supplierId" value="${relationEntity.supplierId }" type="text" placeholder="查询内容 回车搜索"/>
                 </div>
                 <div class="col-sm-4">
                     <span>物资</span>
-                    <input class="form-control" id="search" name="testName" value="${testEntity.testName }" type="text" placeholder="查询内容 回车搜索"/>
+                    <input class="form-control" id="searc" name="testName" value="${testEntity.testName }" type="text" placeholder="查询内容 回车搜索"/>
                 </div>
                 <div class="col-sm-4">
                     <span>组织</span>

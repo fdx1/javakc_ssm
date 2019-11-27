@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author lenovo
@@ -95,10 +97,18 @@ public class RelationController {
     }
 
     @RequestMapping("/createOrg")
-    public String createPare(OrgEntity entity, ModelMap model)
+    public String createParen(ModelMap model)
+    {
+        model.put("list",orgService.queryAllOrg());
+        
+        return "supply/relation/create-org";
+    }
+
+    @RequestMapping("/createOr")
+    public String createPare(ModelMap model)
     {
         model.put("list",orgService.queryAllOrg());
 
-        return "supply/relation/create-wz";
+        return "supply/relation/create-sh";
     }
 }
