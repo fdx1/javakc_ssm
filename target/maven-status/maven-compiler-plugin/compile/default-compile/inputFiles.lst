@@ -3,7 +3,6 @@ D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\base\dialect\db\MySQL
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\base\util\converter\DateTimeConverter.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\base\dialect\db\SQLServer2005Dialect.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\dictionary\controller\DictionaryController.java
-D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\supply\relation\dao\RealtionDao.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\supply\relation\service\RelationService.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\system\shiro\controller\LoginController.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\base\dao\BaseDao.java
@@ -67,6 +66,7 @@ D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\base\util\date\DateUt
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\base\page\PaginationInterceptor.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\supply\supplier\controller\SupplierController.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\base\page\Page.java
+D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\supply\relation\dao\RelationDao.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\supply\suppliestype\service\TypeService.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\supply\supplies\dao\SuppliesDao.java
 D:\Maven\workspace\javakc_ssm\src\main\java\com\zhg\javakc\modules\system\role\dao\RoleDao.java

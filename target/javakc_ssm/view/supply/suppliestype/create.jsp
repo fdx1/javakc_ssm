@@ -129,7 +129,7 @@
                     </fieldset>     
                     <fieldset>
                         <div class="form-group">
-                        	<label class="col-sm-2 control-label" for="ds_host"></label>
+                        	<label class="col-sm-2 control-label" ></label>
                            	<div class="col-sm-4">
                               	<input type="submit" value="提交" class="btn btn-primary"/>
 								<input type="reset" value="重置" class="btn btn-danger" id="resetForm"/>
