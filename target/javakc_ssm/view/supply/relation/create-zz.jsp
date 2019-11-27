@@ -99,7 +99,7 @@
 					parent.$('#menupidValue').val(id);
 					parent.layer.close(index);
 				}
-			
+
 		});
 
 	});
