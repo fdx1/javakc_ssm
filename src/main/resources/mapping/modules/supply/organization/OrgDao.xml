@@ -24,10 +24,26 @@
         ORI_NAME "name",
         PID "pId",
         DECODE(ORI_OPEN,1,'true',2,'false') "open",
-        ORI_LEVEL "level"
+        ORI_LEVEL "level",
+        ORI_ORDER "order"
         FROM ORGANIZATION WHERE 1=1 AND PID =#{oriId} ORDER BY ORI_ORDER ASC
 
     </select>
+
+    <select id="get" resultType="com.zhg.javakc.modules.supply.organization.entity.OrgEntity">
+        SELECT  ORI_ID "id",
+        ORI_NAME "name",
+        PID "pId",
+        DECODE(ORI_OPEN,1,'true',2,'false') "open",
+        ORI_LEVEL "level",
+        ORI_ORDER "order"
+        FROM ORGANIZATION WHERE ORI_ID=#{oriId}
+    </select>
+
+    <update id="updateOri">
+        UPDATE ORGANIZATION SET ORI_NAME={#oriName},ORI_OPEN={#oriOpen},
+        ORI_LEVEL={#oriLevel},ORI_ORDER={#oriOrder} where ORI_ID={#oriId}
+    </update>
 
     <delete id="deleteOri">
         DELETE FROM ORGANIZATION WHERE ORI_ID=#{oriId}
@@ -37,5 +53,5 @@
 <!--        {call delete_ori(#{orgId},mode=IN,jdbcType=VARCHAR )}-->
 <!--    </delete>-->
 
-	
+
 </mapper>

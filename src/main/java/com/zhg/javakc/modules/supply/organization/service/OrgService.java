@@ -32,4 +32,10 @@ public class OrgService extends BaseService<OrgDao, OrgEntity> {
         orgDao.deleteOri(oriId);
     }
 
+    public void updateOri(OrgEntity orgEntity){
+        orgDao.updateOri(orgEntity);
+    }
+
+
+
 }
