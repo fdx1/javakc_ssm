@@ -48,26 +48,6 @@
 			}
 
 			$("#oriId").val(id);
-			var url= root+$(this).attr('name');
-			swal({
-				title: "确定要删除吗?",
-				text: "删除后将无法恢复当前记录!",
-				type: "warning",
-				showCancelButton: true,
-				confirmButtonColor: "#DD6B55",
-				confirmButtonText: "是的, 不后悔!",
-				cancelButtonText: "算了, 再想想!",
-				closeOnConfirm: false,
-				closeOnCancel: false
-			}, function(isConfirm){
-				if (isConfirm) {
-					swal("成功!", "删除成功,再也找不回来了.", "success");
-					$("#searchForm").attr('action', url).submit();
-				} else {
-					swal("取消", "吓死了,幸亏没删了!", "error");
-				}
-			});
-
 		});
 
 	})
@@ -98,7 +78,7 @@
 						<ul id="org" class="ztree"></ul>
 					</table>
                     <div class="btn-group hidden-xs" role="group">
-                        <button type="button" class="btn btn-success" data-toggle="modal" id="deleteOrg" name="org/delete.do">
+                        <button type="button" class="btn btn-success" data-toggle="modal" id="deleteOrg">
                             <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>确定
                         </button>
                     </div>
