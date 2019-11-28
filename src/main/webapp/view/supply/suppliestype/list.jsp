@@ -120,6 +120,9 @@
 				<div class="alert alert-success" role="alert">物资类别详细信息</div>
 				<div class="col-sm-8">
 					<div class="btn-group hidden-xs" role="group">
+						<button type="button" class="btn btn-success" data-toggle="modal" id="queryByTypeName" name="type/view.do">
+							<i class="glyphicon glyphicon-search" aria-hidden="true"></i>查询
+						</button>
 						<button type="button" class="btn btn-primary" data-toggle="modal" id="create" name="supply/suppliestype/create.jsp">
 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>添加
 						</button>
@@ -129,9 +132,6 @@
 						<button type="button" class="btn btn-danger" data-toggle="modal" id="deleteType" name="type/delete.do">
 							<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>删除
 						</button>
-                        <button type="button" class="btn btn-success" data-toggle="modal" id="queryByTypeName" name="type/view.do">
-                            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>查询
-                        </button>
 
 				</div>
 				<div class="col-sm-4">

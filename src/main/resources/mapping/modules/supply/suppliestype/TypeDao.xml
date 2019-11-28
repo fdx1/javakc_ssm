@@ -33,7 +33,7 @@
     </select>
 
     <update id="updateType">
-        UPDATE SUPPLIESTYPE SET TYPE_NAME=#{typeName},TYPE_SHORT=#{typeShort},
+        UPDATE SUPPLIESTYPE SET TYPE_NAME=#{typeName},TYPE_SHORT=#{typeShort},TYPE_PID=#{typePid},
         TYPE_OPEN=#{typeOpen},TYPE_ORDER=#{typeOrder},TYPE_LEVEL=#{typeLevel}
         WHERE TYPE_ID=#{typeId}
     </update>

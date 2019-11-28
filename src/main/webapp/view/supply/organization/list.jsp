@@ -84,7 +84,7 @@
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div class="ibox float-e-margins">
 				<form id="searchForm" action="">
-					<input type="text" name="oriId" id ="oriId" value=""/>
+					<input type="hidden" name="oriId" id ="oriId" value=""/>
 				<div class="col-sm-12">
 					<!-- ------------按钮组 start------------ -->
 	                <div class="alert alert-success" role="alert">组织详细信息</div>
