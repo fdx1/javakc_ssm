@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author lenovo
@@ -35,5 +36,9 @@ public class SupplierService extends BaseService<SupplierDao, SupplierEntity> {
         //将查询数据设置到分页类的List集合中，一起返回
         page.setList(testList);
         return page;
+    }
+    public List<Map<String, Object>> findList()
+    {
+        return supplierDao.findAll();
     }
 }

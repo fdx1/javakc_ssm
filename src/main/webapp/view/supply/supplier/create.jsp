@@ -13,7 +13,7 @@
 		function jjj() {
 			var xx=document.getElementById("supplierType01").valueOf();
 			alert(xx)
-			if (xx!=0){
+			if (xx==0){
 				document.getElementById("oriName").style.display="none";
 			}else {
 				document.getElementById("oriName").style.display="";
@@ -37,7 +37,7 @@
 							   <div class="form-group" id="oriName">
 								   <label class="col-sm-1 control-label" >供应商内部组织</label>
 								   <div class="col-sm-3">
-									   <input class="form-control" type="text"  name="oriName" />
+									   <input class="form-control" type="text" id="ori" readonly name="oriName" placeholder="点击选择内部组织" />
 									</div>
 						   		</div>
                        </div>
@@ -118,5 +118,6 @@
 		</div>
 	</body>
 	<script type="text/javascript" src="${path }/static/js/plugins/file-input/fileinput.min.js"></script>
+	<script type="text/javascript" src="${path }/view/supply/supplier/js/ori.js"></script>
 	<script type="text/javascript" src="./js/dictionary.js"></script>
 </html>

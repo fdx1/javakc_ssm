@@ -33,7 +33,6 @@
                 org.updateNode(node);
                 org.selectNode(node);
 			});
-
 			//删除
 			$("#deleteOrg").click(function() {
 				var nodes = org.getSelectedNodes();
