@@ -51,6 +51,7 @@
 			var nodeName = $("#nodeName");
 			nodeName.attr("value", v);
 			$('#oriPid').val(id);
+			$('#oriId').val(id);
 
 
 
@@ -81,15 +82,15 @@
 			</div>
 			<div class="ibox float-e-margins">
 				<form action="${path }/org/update.do" method="post" class="form-horizontal" role="form">
-					<input type="text" id="oriId" name="oriId" value="${orgEntity.oriId}" />
-					<input type="text" id="oriPid" name="oriPid" value="${orgEntity.oriPid}" />
+					<input type="hidden" id="oriId" name="oriId" value="${orgEntity.oriId}" />
+					<input type="hidden" id="oriPid" name="oriPid" value="${orgEntity.oriPid}" />
 					<fieldset>
                         <legend>修改组织基本信息</legend>
 
 						<div class="form-group">
 							<a id="menuBtn" href="#" onclick="showMenu(); return false;" class="col-sm-2 control-label" >上级组织选择</a>
 							<div class="col-sm-2">
-								<input class="form-control" type="text" id="nodeName" name="nodeName" />
+								<input class="form-control" type="text" id="nodeName" name="nodeName" value="${orgEntity.oriPid}"/>
 								<div id="menuContent" class="menuContent" style="display:none;">
 									<ul id="org" class="ztree" style="margin-top:0; width:160px;"></ul>
 								</div>
@@ -99,14 +100,14 @@
 						<div class="form-group">
                           <label class="col-sm-2 control-label">组织名称</label>
                           <div class="col-sm-2">
-                             <input class="form-control" type="text" name="oriName" value="${oriEntity.oriName}" />
+                             <input class="form-control" type="text" name="oriName" value="${orgEntity.oriName}" />
                           </div>
                        </div>
 
                         <div class="form-group">
                           <label class="col-sm-2 control-label" >是否展开节点</label>
                           <div class="col-sm-2">
-                             <input type="radio" name="oriOpen" value="1"/>展开
+                             <input type="radio" name="oriOpen" value="1" checked/>展开
 							  <input type="radio" name="oriOpen" value="2"/>关闭
                           </div>
                         </div>
@@ -114,14 +115,14 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" >节点顺序</label>
 							<div class="col-sm-2">
-								<input class="form-control" type="text"  name="oriOrder" value="${oriEntity.oriOrder}"/>
+								<input class="form-control" type="text" name="oriOrder" value="${orgEntity.oriOrder}"/>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label" >节点等级</label>
 							<div class="col-sm-2">
-								<input class="form-control" type="text" name="oriLevel" value="${oriEntity.oriLevel}"/>
+								<input class="form-control" type="text" name="oriLevel" value="${orgEntity.oriLevel}"/>
 							</div>
 						</div>
 
@@ -129,7 +130,7 @@
 
 					<fieldset>
                         <div class="form-group">
-                        	<label class="col-sm-2 control-label" for="ds_host"></label>
+                        	<label class="col-sm-2 control-label" ></label>
                            	<div class="col-sm-4">
                               	<input type="submit" value="提交" class="btn btn-primary"/>
 								<input type="reset" value="重置" class="btn btn-danger" id="resetForm"/>

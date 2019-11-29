@@ -68,7 +68,7 @@
 			});
 
 			// 修改
-			$("#updateOri").click(function () {
+			$("#updateOrg").click(function () {
 				var nodes=org.getSelectedNodes();
 				if (nodes.length!=1){
 					alert("请选择一条数据进行修改");
@@ -78,7 +78,7 @@
 				var id="";
 				for(var i=0;i<nodes.length;i++){
 					id= nodes[i].id;
-					alert(id);
+
 				}
 
 				$("#oriId").val(id);
@@ -116,7 +116,7 @@
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div class="ibox float-e-margins">
 				<form id="searchForm" action="">
-					<input type="text" name="oriId" id ="oriId" value="${OrgEntity.oriId}"/>
+					<input type="hidden" name="oriId" id ="oriId" value="${OrgEntity.oriId}"/>
 				<div class="col-sm-12">
 					<!-- ------------按钮组 start------------ -->
 	                <div class="alert alert-success" role="alert">组织详细信息</div>
@@ -132,7 +132,7 @@
 	                            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>添加
 	                        </button>
 
-							<button type="button" class="btn btn-primary" data-toggle="modal" id="updateOri" name="org/view.do">
+							<button type="button" class="btn btn-primary" data-toggle="modal" id="updateOrg" name="org/view.do">
 								<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>修改
 							</button>
 

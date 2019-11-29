@@ -82,9 +82,9 @@
                     <fieldset>
                         <legend>物资基本信息</legend>
 						<div class="form-group">
-							<a id="menuBtn"  href="#" onclick="showMenu(); return false;" class="col-sm-2 control-label">选择</a>
+							<a id="menuBtn"  href="#" onclick="showMenu(); return false;" class="col-sm-2 control-label">选择类别</a>
 							<div class="col-sm-2">
-								<input class="form-control" type="text" id="nodeName" name="nodeName" />
+								<input class="form-control" type="text" id="nodeName" name="nodeName" placeholder="请选择所属类别"/>
 								<div id="menuContent" class="menuContent" style="display: none;">
 									<ul id="type" class="ztree" style="margin-top: 0; width: 160px;"></ul>
 								</div>
@@ -129,7 +129,7 @@
                     </fieldset>     
                     <fieldset>
                         <div class="form-group">
-                        	<label class="col-sm-2 control-label" for="ds_host"></label>
+                        	<label class="col-sm-2 control-label" ></label>
                            	<div class="col-sm-4">
                               	<input type="submit" value="提交" class="btn btn-primary"/>
 								<input type="reset" value="重置" class="btn btn-danger" id="resetForm"/>

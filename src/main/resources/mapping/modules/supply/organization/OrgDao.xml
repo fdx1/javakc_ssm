@@ -31,18 +31,19 @@
     </select>
 
     <select id="get" resultType="com.zhg.javakc.modules.supply.organization.entity.OrgEntity">
-        SELECT  ORI_ID "id",
-        ORI_NAME "name",
-        PID "pId",
-        DECODE(ORI_OPEN,1,'true',2,'false') "open",
-        ORI_LEVEL "level",
-        ORI_ORDER "order"
+        SELECT  ORI_ID "oriId",
+        ORI_NAME "oriName",
+        PID "oriPid",
+        ORI_LEVEL "oriLevel",
+        ORI_ORDER "oriOrder",
+        DECODE(ORI_OPEN,2,'false',1,'true') "oriOpen"
+
         FROM ORGANIZATION WHERE ORI_ID=#{oriId}
     </select>
 
     <update id="updateOri">
-        UPDATE ORGANIZATION SET ORI_NAME={#oriName},ORI_OPEN={#oriOpen},
-        ORI_LEVEL={#oriLevel},ORI_ORDER={#oriOrder} where ORI_ID={#oriId}
+        UPDATE ORGANIZATION SET ORI_NAME=#{oriName},ORI_OPEN=#{oriOpen},
+        ORI_LEVEL=#{oriLevel},ORI_ORDER=#{oriOrder} where ORI_ID=#{oriId}
     </update>
 
     <delete id="deleteOri">

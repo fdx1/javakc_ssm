@@ -35,7 +35,7 @@ public class OrgController {
     public String save (OrgEntity orgEntity){
         orgEntity.setOriId(CommonUtil.uuid());
         orgService.save(orgEntity);
-        return "supply/organization/list";
+        return "redirect:shuaxin.do";
     }
 
     @RequestMapping("view")
@@ -43,8 +43,9 @@ public class OrgController {
         OrgEntity orgEntity =orgService.get(oriId);
         modelMap.put("orgEntity",orgEntity);
         return "supply/organization/update";
-
     }
+
+
 
     @RequestMapping("update")
     public String update(OrgEntity orgEntity){
@@ -65,6 +66,14 @@ public class OrgController {
             //删除当前节点
             orgService.deleteOri(oriId);
         }
+        return "redirect:shuaxin.do";
+    }
+
+
+    @RequestMapping("shuaxin")
+    public String shuaxin (){
         return "supply/organization/list";
     }
+
+
 }
