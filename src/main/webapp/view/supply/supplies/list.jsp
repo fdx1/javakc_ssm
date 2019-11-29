@@ -38,6 +38,7 @@
 					                <th><input type="checkbox" id="checkall"/></th>
 					                <th>物资编码</th>
 					                <th>物资名称</th>
+									<th>物资分类</th>
 					                <th>物资简称</th>
 					                <th>规格</th>
 					                <th>物资分类</th>
@@ -55,6 +56,9 @@
 										<td><input type="checkbox" name="ids" value="${e.goodsId }"/></td>
 										<td>${e.goodsId }</td>
 										<td>${e.goodsName}</td>
+										<td>
+										${e.typeEntity.typeName}
+										</td>
 										<td>${e.goodsJiancheng }</td>
 										<td>${e.goodsGuige }</td>
 										<td>${e.goodsWuzizu} </td>

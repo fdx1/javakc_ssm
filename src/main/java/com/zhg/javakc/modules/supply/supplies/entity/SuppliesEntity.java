@@ -1,6 +1,7 @@
 package com.zhg.javakc.modules.supply.supplies.entity;
 
 import com.zhg.javakc.base.entity.BaseEntity;
+import com.zhg.javakc.modules.supply.suppliestype.entity.TypeEntity;
 
 /**
  * @Author lenovo
@@ -36,7 +37,7 @@ public class SuppliesEntity extends BaseEntity<SuppliesEntity> {
     /**
      * 照片信息
      */
-    private byte[] goodsPicture;
+    private Object goodsPicture;
     /**
      * 是否赋码 1:是 2:否
      */
@@ -102,6 +103,15 @@ public class SuppliesEntity extends BaseEntity<SuppliesEntity> {
      */
 //    private String priceId;
 
+    private TypeEntity typeEntity;
+
+    public TypeEntity getTypeEntity() {
+        return typeEntity;
+    }
+
+    public void setTypeEntity(TypeEntity typeEntity) {
+        this.typeEntity = typeEntity;
+    }
 
     public String getGoodsId() {
         return goodsId;
@@ -151,11 +161,11 @@ public class SuppliesEntity extends BaseEntity<SuppliesEntity> {
         this.goodsComment = goodsComment;
     }
 
-    public byte[] getGoodsPicture() {
+    public Object getGoodsPicture() {
         return goodsPicture;
     }
 
-    public void setGoodsPicture(byte[] goodsPicture) {
+    public void setGoodsPicture(Object goodsPicture) {
         this.goodsPicture = goodsPicture;
     }
 

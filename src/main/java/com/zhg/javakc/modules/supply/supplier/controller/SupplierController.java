@@ -1,10 +1,8 @@
 package com.zhg.javakc.modules.supply.supplier.controller;
 
 import com.zhg.javakc.base.page.Page;
-import com.zhg.javakc.base.util.CommonUtil;
 import com.zhg.javakc.modules.supply.supplier.entity.SupplierEntity;
 import com.zhg.javakc.modules.supply.supplier.service.SupplierService;
-import com.zhg.javakc.modules.test.entity.TestEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -65,10 +63,10 @@ public class SupplierController {
         return "redirect:query.do";
     }
 
-    @RequestMapping("/createParent")
-    public String createParent(SupplierEntity entity, ModelMap model)
-    {
-        model.put("page", supplierService.findList(entity));
-        return "supply/supplier/ori";
-    }
+//    @RequestMapping("/createParent")
+//    public String createParent(SupplierEntity entity, ModelMap model)
+//    {
+//        model.put("page", supplierService.findList(entity));
+//        return "supply/supplier/ori";
+//    }
 }

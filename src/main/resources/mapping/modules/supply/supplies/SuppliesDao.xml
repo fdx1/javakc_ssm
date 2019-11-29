@@ -52,27 +52,23 @@
         <result property="goodsState" column="GOODS_STATE"/>
         <result property="updateDate" column="UPDATEDATE"/>
         <result property="goodsUnit" column="GOODS_UNIT"/>
+        <collection property="typeEntity"  ofType="com.zhg.javakc.modules.supply.suppliestype.entity.TypeEntity">
+           <id property="typeId" column="TYPE_ID"></id>
+            <result property="typeName" column="TYPE_NAME"></result>
+        </collection>
     </resultMap>
 
-    <select id="findList" resultMap="goodsMap">
-        SELECT
-        <include refid="all_goods"/>
-        FROM SUPPLIES WHERE 1=1
-        <if test="goodsName!='' and goodsName!=null ">
-           AND GOODS_NAME LIKE '%'||#{goodsName}||'%'
-        </if>
-        <if test="goodsJiancheng!='' and goodsJiancheng!=null ">
-            AND GOODS_JIANCHENG LIKE '%'||#{goodsJiancheng}||'%'
-        </if>
-    </select>
 
-    <!--    <select id="findList" resultType="com.zhg.javakc.modules.test.entity.TestEntity">-->
-    <!--        SELECT  TEST_ID AS testId,TEST_NAME AS testName,TEST_SEX AS testSex,TEST_DATE AS testDate-->
-    <!--        FROM DATA_TEST WHERE 1=1-->
-    <!--        <if test="testName!='' and testName!=null">-->
-    <!--            AND TEST_NAME LIKE  '%'||#{testName}||'%'-->
-    <!--        </if>-->
-    <!--    </select>-->
+        <select id="findList" resultMap="goodsMap">
+            SELECT
+<!--            <include refid="all_goods"/>,-->
+            s.*,t.TYPE_NAME
+            FROM SUPPLIES s,SUPPLIESTYPE t WHERE 1=1 AND s.TYPE_ID=t.TYPE_ID
+            <if test="goodsName!='' and goodsName!=null ">
+                AND GOODS_NAME LIKE '%'||#{goodsName}||'%'
+            </if>
+        </select>
+
 
         <insert id="insert">
             INSERT INTO SUPPLIES (<include refid="all_goods"/>)
@@ -90,40 +86,16 @@
         </delete>
 
         <select id="get" resultMap="goodsMap">
-            SELECT<include refid="all_goods"/> FROM SUPPLIES WHERE GOODS_ID=#{0}
+            SELECT<include refid="all_goods"/> FROM SUPPLIES s WHERE GOODS_ID=#{0}
         </select>
 
         <update id="update" >
-            UPDATE SUPPLIES SET GOODS_NAME=#{goodsName },GOODS_GUIGE=#{goodsGuige},GOODS_JIANCHENG=#{goodsJiancheng},
+            UPDATE SUPPLIES SET GOODS_NAME=#{goodsName },TYPE_ID=#{typeId},GOODS_GUIGE=#{goodsGuige},GOODS_JIANCHENG=#{goodsJiancheng},
             GOODS_COMMENT=#{goodsComment},GOODS_PICTURE=#{goodsPicture},GOODS_FUMA=#{goodsFuma},GOODS_MOLD=#{goodsMold},
             GOODS_PACT=#{goodsPact},GOODS_WUZIZU=#{goodsWuzizu},GOODS_DATE=#{goodsDate},RATE=#{rate},
             GOODS_BASICU=#{goodsBasicu},GOODS_SUTTLE=#{goodsSuttle},GOODS_ROUGH=#{goodsRough},GOODS_PRODU=#{goodsProdu},
             GOODS_LENGTH=#{goodsLength},GOODS_WIDE=#{goodsWide},GOODS_HIGH=#{goodsHigh},GOODS_UNIT=#{goodsUnit}
             WHERE GOODS_ID=#{goodsId}
         </update>
-
-
-<!--    <select id="findList" resultType="com.zhg.javakc.modules.test.entity.TestEntity">-->
-<!--        SELECT  TEST_ID AS testId,TEST_NAME AS testName,TEST_SEX AS testSex,TEST_DATE AS testDate-->
-<!--        FROM DATA_TEST WHERE 1=1-->
-<!--        <if test="testName!='' and testName!=null">-->
-<!--            AND TEST_NAME LIKE  '%'||#{testName}||'%'-->
-<!--        </if>-->
-<!--    </select>-->
-
-
-
-<!--    <select id="get" resultType=  "com.zhg.javakc.modules.test.entity.TestEntity">-->
-<!--        SELECT  TEST_ID AS testId,TEST_NAME AS testName,TEST_SEX AS testSex,TEST_DATE AS testDate-->
-<!--        FROM DATA_TEST WHERE TEST_ID=#{0}-->
-<!--    </select>-->
-
-<!--    <update id="update">-->
-<!--        UPDATE DATA_TEST SET TEST_NAME=#{testName},TEST_SEX=#{testSex},TEST_DATE=#{testDate}-->
-<!--        WHERE TEST_ID=#{testId}-->
-<!--    </update>-->
-
-
-
 
 </mapper>

@@ -5,7 +5,74 @@
 		<title>物资修改页面</title>
 		<%@ include file="../../../common/jsp/header.jsp"%>
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
+        <link href="<%=path%>/static/css/plugins/ztree/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+        <script type="text/javascript" src="<%=path%>/static/js/plugins/ztree/jquery.ztree.core-3.5.js"></script>
 	</head>
+    <script language="JavaScript">
+
+        $(function () {
+            var setting = {
+                view: {
+                    dblClickExpand: false
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                callback: {
+                    beforeClick: beforeClick,
+                    onClick: onClick
+                }
+            };
+
+            $.post(root+'type/queryAllType.do',function(zNodes) {
+                $.fn.zTree.init($("#type"),setting,zNodes);
+            },'json')
+
+        })
+        function beforeClick(treeId, treeNode) {
+        }
+
+        function onClick(e, treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("type"),
+                nodes = zTree.getSelectedNodes(),
+                v = "";
+            id ="";
+            nodes.sort(function compare(a,b){return a.id-b.id;});
+            for (var i=0, l=nodes.length; i<l; i++) {
+                v += nodes[i].name + ",";
+                id += nodes[i].id + ",";
+            }
+            if (v.length > 0 ) v = v.substring(0, v.length-1);
+            if (id.length > 0 ) id = id.substring(0, id.length-1);
+            var nodeName = $("#nodeName");
+            nodeName.attr("value", v);
+            $("#idd").val(id)
+            $("#nodeName").val(name)
+
+
+
+        }
+
+        function showMenu() {
+            var cityObj = $("#nodeName");
+            var cityOffset = $("#nodeName").offset();
+            $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+            $("body").bind("mousedown", onBodyDown);
+        }
+        function hideMenu() {
+            $("#menuContent").fadeOut("fast");
+            $("body").unbind("mousedown", onBodyDown);
+        }
+        function onBodyDown(event) {
+            if (!(event.target.id == "menuBtn" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+                hideMenu();
+            }
+        }
+
+    </script>
 	<body>
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div>
@@ -13,7 +80,8 @@
 			</div>
 			<div class="ibox float-e-margins">
 				<form action="${path }/supplies/update.do" method="post" class="form-horizontal" role="form">
-					<input type="hidden1" name="goodsId" id="goodsId" value="${suppliesEntity.goodsId}">
+					<input type="hidden" name="goodsId" id="goodsId" value="${suppliesEntity.goodsId}">
+                    <input type="hidden"  name="typeId" id="idd" value="${suppliesEntity.typeId}"/>
                     <fieldset>
                         <legend>物资基本信息</legend>
                         <div class="form-group">
@@ -22,8 +90,11 @@
                                 <ul id="treeDemo" class="ztree" style="margin-top: 0; width: 160px" ></ul>
                             </div>
                             <div class="col-sm-3">
-                                <input class="form-control" type="text" name="typeName"  />
-                                <a id="menuBtn" onclick="showRMenu(); return false;" class="glyphicon glyphicon-search"></a>
+                                <input class="form-control" type="text" id="nodeName"    onclick="showMenu(); return false;" readonly  />
+                                <div id="menuContent" class="menuContent" style="display: none;">
+                                    <ul id="type" class="ztree" style="margin-top: 0; width: 160px;"></ul>
+                                </div>
+
                             </div>
                             <label class="col-sm-2 control-label" >物资名称:</label>
                             <div class="col-sm-3">
@@ -43,7 +114,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label" >物资简述:</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" rows="3" name="goodsCommit" ></textarea>
+                                <textarea class="form-control" rows="3" name="goodsCommit"  >${goodsCommit}</textarea>
                             </div>
                         </div>
                         <div class="form-group">

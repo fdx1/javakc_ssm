@@ -6,42 +6,100 @@
 		<title>物资添加页面</title>
 		<%@ include file="../../../common/jsp/header.jsp"%>
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
+        <link href="<%=path%>/static/css/plugins/ztree/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+        <script type="text/javascript" src="<%=path%>/static/js/plugins/ztree/jquery.ztree.core-3.5.js"></script>
 	</head>
+    <script language="JavaScript">
+
+        $(function () {
+            var setting = {
+                view: {
+                    dblClickExpand: false
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                callback: {
+                    beforeClick: beforeClick,
+                    onClick: onClick
+                }
+            };
+
+            $.post(root+'type/queryAllType.do',function(zNodes) {
+            $.fn.zTree.init($("#type"),setting,zNodes);
+        },'json')
+
+        })
+        function beforeClick(treeId, treeNode) {
+        }
+
+        function onClick(e, treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("type"),
+                nodes = zTree.getSelectedNodes(),
+                v = "";
+            id ="";
+            nodes.sort(function compare(a,b){return a.id-b.id;});
+            for (var i=0, l=nodes.length; i<l; i++) {
+                v += nodes[i].name + ",";
+                id += nodes[i].id + ",";
+            }
+            if (v.length > 0 ) v = v.substring(0, v.length-1);
+            if (id.length > 0 ) id = id.substring(0, id.length-1);
+            var nodeName = $("#nodeName");
+            nodeName.attr("value", v);
+            $("#idd").val(id)
+
+        }
+
+        function showMenu() {
+            var cityObj = $("#nodeName");
+            var cityOffset = $("#nodeName").offset();
+            $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+            $("body").bind("mousedown", onBodyDown);
+        }
+        function hideMenu() {
+            $("#menuContent").fadeOut("fast");
+            $("body").unbind("mousedown", onBodyDown);
+        }
+        function onBodyDown(event) {
+            if (!(event.target.id == "menuBtn" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+                hideMenu();
+            }
+        }
+
+    </script>
 	<body>
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div>
 				<div class="col-sm-4"><input type="button" value="返回上一页" class="btn btn-success" onclick="javascript:history.back();"/></div>
 			</div>
 			<div class="ibox float-e-margins">
-				<form action="${path }/supplies/save.do" method="post" class="form-horizontal" role="form">
+                <form action="${path }/supplies/save.do" method="post" class="form form-horizontal" role="form" enctype="multipart/form-data">
+                    <input type="hidden"  name="typeId" id="idd"/>
                     <fieldset>
                         <legend>物资新增</legend>
                        <div class="form-group">
-                          <label class="col-sm-2 control-label" >物资分类:</label>
-<%--                           <div id="form-control" class="menuContent" style="display: none; position:absolute " >--%>
-<%--                               <ul id="treeDemo" class="ztree" style="margin-top: 0; width: 160px"></ul>--%>
-<%--                           </div>--%>
-<%--                           <div class="col-sm-3">--%>
-<%--                               <input class="form-control" type="text" name="typeName" />--%>
-<%--                                   <a id="menuBtn" onclick="showRMenu(); return false;" class="glyphicon glyphicon-search"></a>--%>
-<%--                           </div>--%>
-                           <div class="col-sm-3">
-                           <div class="input-group">
-                               <input type="text" class="form-control" placeholder="选择物资分类" readonly>
-                               <span class="input-group-btn">
-                                <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
-                              </span>
-                           </div><!-- /input-group -->
-                           </div>
-                          <label class="col-sm-2 control-label" >物资名称:</label>
+                           <label id="menuBtn"  href="#"  class="col-sm-2 control-label" >选择物资分类</label>
+                           <div class="col-sm-2">
+                               <input class="form-control" type="text" id="nodeName"   onclick="showMenu(); return false;" readonly  />
+<%--                               <input class="form-control" type="text" id="nodeName" readonly  placeholder="点击选择物资分类" />--%>
+                               <div id="menuContent" class="menuContent" style="display: none;">
+                                   <ul id="type" class="ztree" style="margin-top: 0; width: 160px;"></ul>
+                               </div>
+                          </div>
+
+                          <label class="col-sm-2 control-label" for="goodsName" >物资名称:</label>
                           <div class="col-sm-3">
-							  <input class="form-control" type="text" name="goodsName" />
+							  <input class="form-control" type="text" name="goodsName" id="goodsName" />
                           </div>
                        </div>
                        <div class="form-group">
-                          <label class="col-sm-2 control-label" >规格:</label>
+                          <label class="col-sm-2 control-label"  >规格:</label>
                           <div class="col-sm-3">
-                             <input class="form-control" type="text"  name="goodsGuige"/>
+                             <input class="form-control" type="text"  name="goodsGuige" />
                           </div>
 						<label class="col-sm-2 control-label" >物资简称:</label>
 						<div class="col-sm-3">
@@ -57,10 +115,11 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" >图片信息:</label>
 							<div class="btn-group">
-								<label title="上传图片" for="inputImage" class="btn btn-primary">
-									<input type="file" accept="image/*" name="goodsPicture" id="inputImage" class="hide">
-									上传新图片
-								</label>
+<%--								<label title="上传图片"  class="btn btn-primary">--%>
+<%--									<input type="file"  name="goodsPicture" id="" class="input-text" required>--%>
+                                    <input type="file"   class="input-text" value=""  id="goodsPicture" name="goodsPicture" required>
+
+<%--								</label>--%>
 							</div>
 						</div>
                         <legend></legend>
@@ -86,7 +145,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label" >物资组:</label>
                             <div class="col-sm-2">
-                                <input class="form-control" type="text" name="goodsWuzizu" />
+                                <input class="form-control" type="text" name="goodsWuzizu"  />
                             </div>
                             <label class="col-sm-2 control-label" >保质期:</label>
                             <div class="col-sm-1">
@@ -102,19 +161,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" >税率:</label>
+                            <label class="col-sm-2 control-label" for="rate" >税率:</label>
                             <div class="col-sm-1">
-                                <input class="form-control" type="text" name="rate" />
+                                <input class="form-control" type="text" name="rate" id="rate" />
                             </div>
 
-                            <label class="col-sm-2 control-label" >基本单位:</label>
+                            <label class="col-sm-2 control-label" for="goodsBasicu" >基本单位:</label>
                             <div class="col-sm-1">
-                                <input class="form-control" type="text" name="goodsBasicu" />
+                                <input class="form-control" type="text" name="goodsBasicu" id="goodsBasicu" />
                             </div>
 
-                            <label class="col-sm-2 control-label" >生产单位:</label>
+                            <label class="col-sm-2 control-label" for="goodsProdu" >生产单位:</label>
                             <div class="col-sm-1">
-                                <input class="form-control" type="text" name="goodsProdu" />
+                                <input class="form-control" type="text" name="goodsProdu" id="goodsProdu" />
                             </div>
                         </div>
 
@@ -164,5 +223,5 @@
 		</div>
 	</body>
 	<script type="text/javascript" src="${path }/static/js/plugins/file-input/fileinput.min.js"></script>
-	<script type="text/javascript" src="./js/dictionary.js"></script>
+<%--    <script type="text/javascript" src="${path }/view/supply/supplies/js/supplies.js"></script>--%>
 </html>
