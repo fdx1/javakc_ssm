@@ -2,7 +2,7 @@ $(function()
 {
 
 	
-	//选择父类触发事件
+
 	$('#goodsId').click(function()
 	{
 		layer.open({
@@ -50,4 +50,57 @@ $(function()
 			content:root+'/relation/createOr.do'
 		});
 	});
+});
+$(function()
+{
+	$('form:eq(0)').bootstrapValidator({
+		message: '这个值是无效的',
+		//校验是显示图标
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		//需要校验的name名称
+		fields: {
+			goodsId: {
+				validators: {
+					notEmpty: {
+						message: '请选择物资!'
+					}
+				}
+			},
+			rate: {
+				validators: {
+					notEmpty: {
+						message: '请添加税率!'
+					}
+				}
+			},
+			oriName: {
+				validators: {
+					notEmpty: {
+						message: '请选择收货组织!'
+					}
+				}
+			},
+
+			supplierId: {
+				validators: {
+					notEmpty: {
+						message: '请选择供应商!'
+					}
+				}
+			},
+			oriId: {
+				validators: {
+					notEmpty: {
+						message: '请选择组织!'
+					}
+				}
+			}
+
+		}
+	});
+
 });

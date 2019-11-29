@@ -64,13 +64,44 @@
 						swal("取消", "吓死了,幸亏没删了!", "error");
 					}
 				});
-
-
 			});
 
+			// 修改
+			$("#updateOrg").click(function () {
+				var nodes=org.getSelectedNodes();
+				if (nodes.length!=1){
+					alert("请选择一条数据进行修改");
+					return false;
+				}
 
+				var id="";
+				for(var i=0;i<nodes.length;i++){
+					id= nodes[i].id;
 
+				}
 
+				$("#oriId").val(id);
+				var url= root + $(this).attr('name');
+
+				swal({
+					title: "确定要修改吗?",
+					text: "修改后将无法恢复当前记录!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "是的, 不后悔!",
+					cancelButtonText: "算了, 再想想!",
+					closeOnConfirm: false,
+					closeOnCancel: false
+				}, function(isConfirm){
+					if (isConfirm) {
+						swal("收到!", "请稍等", "success");
+						$("#searchForm").attr('action', url).submit();
+					} else {
+						swal("取消", "吓死了,幸亏没改了!", "error");
+					}
+				});
+			});
 
 		})
 
@@ -84,7 +115,7 @@
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div class="ibox float-e-margins">
 				<form id="searchForm" action="">
-					<input type="hidden" name="oriId" id ="oriId" value=""/>
+					<input type="hidden" name="oriId" id ="oriId" value="${OrgEntity.oriId}"/>
 				<div class="col-sm-12">
 					<!-- ------------按钮组 start------------ -->
 	                <div class="alert alert-success" role="alert">组织详细信息</div>
@@ -99,6 +130,10 @@
                 			<button type="button" class="btn btn-primary" data-toggle="modal" id="create" name="supply/organization/create.jsp">
 	                            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>添加
 	                        </button>
+
+							<button type="button" class="btn btn-primary" data-toggle="modal" id="updateOrg" name="org/view.do">
+								<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>修改
+							</button>
 
 	                        <button type="button" class="btn btn-danger" data-toggle="modal" id="deleteOrg" name="org/delete.do">
 	                            <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>删除

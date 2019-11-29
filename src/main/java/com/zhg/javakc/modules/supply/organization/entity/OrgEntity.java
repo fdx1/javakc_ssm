@@ -13,7 +13,7 @@ public class OrgEntity extends BaseEntity<OrgEntity> {
     private String oriName;
     private String oriPid;
     private int oriLevel;
-    private int oriOpen;
+    private String oriOpen;
     private int oriOrder;
 
     public String getOriId() {
@@ -48,11 +48,11 @@ public class OrgEntity extends BaseEntity<OrgEntity> {
         this.oriLevel = oriLevel;
     }
 
-    public int getOriOpen() {
+    public String getOriOpen() {
         return oriOpen;
     }
 
-    public void setOriOpen(int oriOpen) {
+    public void setOriOpen(String oriOpen) {
         this.oriOpen = oriOpen;
     }
 
