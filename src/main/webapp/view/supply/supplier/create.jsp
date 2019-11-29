@@ -62,7 +62,7 @@
 							</div>
 							<label class="col-sm-1 control-label">法人电话</label>
 							<div class="col-sm-3">
-								<input class="form-control" type="text"  name="supplierFrphone" value="法人电话"/>
+								<input class="form-control" type="text"  name="supplierFrphone" value="13668564561"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -86,7 +86,7 @@
 						</div>
 						<label class="col-sm-1 control-label">联系人邮箱</label>
 						<div class="col-sm-3">
-							<input class="form-control" type="text"  name="supplierMail" value="联系人邮箱"/>
+							<input class="form-control" type="text"  name="supplierMail" value="ys95756628@163.com"/>
 						</div>
 						</div>
 						<div class="form-group">

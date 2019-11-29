@@ -54,13 +54,19 @@ $(function() {
                 validators: {
                     notEmpty: {
                         message: '法人是必填项,不能为空!'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 12,
+                        message: '法人姓名长度不能低于2不能高于6'
                     }
                 }
             },
             supplierFrphone: {
                 validators: {
-                    notEmpty: {
-                        message: '法人电话是必填项,不能为空!'
+                    regexp: {
+                        regexp:/^1[3456789]\d{9}$/,
+                        message: '请输入正确的电话号码！！'
                     }
                 }
             },
@@ -95,25 +101,12 @@ $(function() {
             },
             supplierMail: {
                 validators: {
-                    notEmpty: {
-                        message: '联系人邮箱是必填项,不能为空!'
+                    regexp: {
+                        regexp:/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/,
+                        message: '请输入正确的邮箱格式！！'
                     }
                 }
             },
-            supplierMh: {
-                validators: {
-                    notEmpty: {
-                        message: '门户是必填项,不能为空!'
-                    }
-                }
-            },
-            supplierHt: {
-                validators: {
-                    notEmpty: {
-                        message: '合同是必填项,不能为空!'
-                    }
-                }
-             },
             // oriName: {
             //     validators: {
             //         notEmpty: {
