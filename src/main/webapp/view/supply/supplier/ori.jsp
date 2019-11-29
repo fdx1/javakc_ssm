@@ -34,35 +34,36 @@
 			org.selectNode(node);
 		});
 
-		//删除
+		//qved
 		$("#deleteOrg").click(function() {
 			var nodes = org.getSelectedNodes();
 			if (nodes.length !=1){
-				alert("请选择一条数据进行删除！");
+
 				return false;
 			}
-			var id="";
+			var name="";
 			for (var i=0;i<nodes.length;i++){
-				id = nodes[i].name;
+                name=nodes[i].name;
 
-			}
+            }
+            $("#oriId").val(name);
+            var ids= $('#oriId').val()
+            var index = parent.layer.getFrameIndex(window.name);
 
-			$("#oriId").val(id);
+            parent.$('#ori').val(ids);
+            parent.layer.close(index);
 		});
-
 	})
-
 	function getFontCss(treeId, treeNode) {
 		return (!!treeNode.highlight) ? {color:"#A60000", "font-weight":"bold"} : {color:"#333", "font-weight":"normal"};
 	}
-
 </script>
 
 <body>
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="ibox float-e-margins">
 		<form id="searchForm" action="">
-			<input type="hidden2" name="oriId" id ="oriId" value=""/>
+			<input type="hidden" name="oriId" id ="oriId" value=""/>
             <div class="col-sm-12">
                 <div class="col-sm-8">
                     <i>&nbsp;</i>
