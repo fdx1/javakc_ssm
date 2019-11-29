@@ -11,14 +11,14 @@
 	</head>
 	<script>
 		function jjj() {
-			var xx=document.getElementById("supplierType01").valueOf();
-			alert(xx)
-			if (xx!=0){
+			var xx=$("#supplierType01").val();
+			if (xx==1){
 				document.getElementById("oriName").style.display="none";
 			}else {
 				document.getElementById("oriName").style.display="";
 			}
 		}
+
 	</script>
 	<body>
 		<div class="wrapper wrapper-content animated fadeInRight">
@@ -37,14 +37,14 @@
 							   <div class="form-group" id="oriName">
 								   <label class="col-sm-1 control-label" >供应商内部组织</label>
 								   <div class="col-sm-3">
-									   <input class="form-control" type="text"  name="oriName" />
+									   <input class="form-control" type="text" id="ori" readonly name="oriName" placeholder="点击选择内部组织" />
 									</div>
 						   		</div>
                        </div>
                        <div class="form-group">
                           <label class="col-sm-1 control-label">供应商名称</label>
                           <div class="col-sm-3">
-                             <input class="form-control" type="text"  name="supplierName"/>
+                             <input class="form-control" type="text"  name="supplierName"value="供应商名称"/>
                           </div>
 						   <label class="col-sm-1 control-label">供应商分类</label>
 						   <div class="col-sm-3">
@@ -54,39 +54,39 @@
 						<div class="form-group">
 							<label class="col-sm-1 control-label">供应商简称</label>
 							<div class="col-sm-3">
-								<input class="form-control" type="text"  name="supplierJname"/>
+								<input class="form-control" type="text"  name="supplierJname" value="供应商简称"/>
 							</div>
 							<label class="col-sm-1 control-label">法人</label>
 							<div class="col-sm-3">
-								<input class="form-control" type="text"  name="supplierFr"/>
+								<input class="form-control" type="text"  name="supplierFr" value="法人"/>
 							</div>
 							<label class="col-sm-1 control-label">法人电话</label>
 							<div class="col-sm-3">
-								<input class="form-control" type="text"  name="supplierFrphone"/>
+								<input class="form-control" type="text"  name="supplierFrphone" value="法人电话"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-1 control-label">供应商地址</label>
 							<div class="col-sm-3">
-								<input class="form-control" type="text"  name="supplierAddress"/>
+								<input class="form-control" type="text"  name="supplierAddress" value="供应商地址"/>
 							</div>
 							<label class="col-sm-1 control-label">社会统一信任代码</label>
 							<div class="col-sm-3">
-								<input class="form-control" type="text"  name="supplierCode"/>
+								<input class="form-control" type="text"  name="supplierCode" value="社会统一信任代码"/>
 							</div>
 						</div>
 						<div class="form-group">
 						<label class="col-sm-1 control-label">联系人</label>
 						<div class="col-sm-3">
-							<input class="form-control" type="text"  name="supplierLxr"/>
+							<input class="form-control" type="text"  name="supplierLxr" value="联系人"/>
 						</div>
 						<label class="col-sm-1 control-label">联系电话</label>
 						<div class="col-sm-3">
-							<input class="form-control" type="text"  name="supplierLphone"/>
+							<input class="form-control" type="text"  name="supplierLphone" value="13768564561"/>
 						</div>
 						<label class="col-sm-1 control-label">联系人邮箱</label>
 						<div class="col-sm-3">
-							<input class="form-control" type="text"  name="supplierMail"/>
+							<input class="form-control" type="text"  name="supplierMail" value="联系人邮箱"/>
 						</div>
 						</div>
 						<div class="form-group">
@@ -96,7 +96,7 @@
 							</div>
 							<label class="col-sm-1 control-label">是否必须合同</label>
 							<div class="col-sm-3">
-								<input class="form-control btn-sm" type="checkbox"  name="supplierHt"  value="1"/>
+								<input class="form-control btn-sm" type="checkbox"  name="supplierHt" value="1"/>
 							</div>
 
 						</div>
@@ -118,5 +118,6 @@
 		</div>
 	</body>
 	<script type="text/javascript" src="${path }/static/js/plugins/file-input/fileinput.min.js"></script>
+	<script type="text/javascript" src="${path }/view/supply/supplier/js/ori.js"></script>
 	<script type="text/javascript" src="./js/dictionary.js"></script>
 </html>

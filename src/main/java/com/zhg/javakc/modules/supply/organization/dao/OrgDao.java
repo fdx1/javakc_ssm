@@ -16,4 +16,7 @@ public interface OrgDao extends BaseDao<OrgEntity> {
     public List<Map<String ,Object>> queryAllOrg();
     public List<Map<String,Object>> queryByOriId(String oriId);
     public void deleteOri(String oriId);
+    public void updateOri(OrgEntity orgEntity );
+
+
 }

@@ -13,8 +13,8 @@
 			<div class="col-sm-12">
 				<!-- ------------按钮组 start------------ -->
 				<div class="alert alert-success" role="alert">供应商详细信息</div>
-				<div class="col-sm-6">
-					<div class="btn-group hidden-xs" role="group">
+				<div class="col-sm-12">
+					<div class=" col-sm-3 btn-group hidden-xs" role="group">
 						<button type="button" class="btn btn-primary" data-toggle="modal" id="create" name="/supply/supplier/create.jsp">
 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>添加
 						</button>
@@ -25,14 +25,20 @@
 							<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>删除
 						</button>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="col-sm-2">
-						<span>供应商名称：</span>
+					<div class="col-sm-6">
+						<div class="col-sm-3">
+							<span>供应商名称：</span>
+						</div>
+						<div class="col-sm-4">
+							<input class=" form-control" id="search" name="supplierName" value="${supplierEntity.supplierName}" type="test" placeholder="查询内容 回车搜索"/>
+						</div>
 					</div>
-					<div class="col-sm-4">
-						<input class=" form-control" id="search" name="supplierName" value="${supplierEntity.supplierName}" type="test" placeholder="查询内容 回车搜索"/>
-				    </div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="col-sm-8">
+						<i>&nbsp;</i>
+					</div>
 				</div>
 				<!-- ------------按钮组 end------------ -->
 				<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>

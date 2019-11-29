@@ -7,7 +7,7 @@ $(function()
 	$('#menupid').click(function()
 	{
 		layer.open({
-		  type: 2,
+            type: 2,
 		  title: '选择菜单父类',
 		  shadeClose: true,
 		  shade: 0.8,
