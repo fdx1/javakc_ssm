@@ -65,4 +65,10 @@ public class SupplierController {
         return "redirect:query.do";
     }
 
+    @RequestMapping("/createParent")
+    public String createParent(SupplierEntity entity, ModelMap model)
+    {
+        model.put("page", supplierService.findList(entity));
+        return "supply/supplier/ori";
+    }
 }

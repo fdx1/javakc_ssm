@@ -25,35 +25,35 @@
 	                        </button>
 		                 </div>
 	                </div>
-	                <div class="col-sm-4">
-	                	<input class="form-control" id="search" name="testName" value="${testEntity.testName }" type="text" placeholder="查询内容 回车搜索"/>
-	                </div>
-	                 <!-- ------------按钮组 end------------ -->
-						<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
-						<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-		                 <table class="table table-striped table-bordered table-hover table-condensed">
-					        <thead>
-					            <tr>
-					                <th><input type="checkbox" id="checkall"/></th>
-					                <th>名称</th>
-					                <th>性别</th>
-					                <th>时间</th>
-					            </tr>
-					        </thead>
-					        <tbody>
-					        	<c:set var="vs"></c:set>
-					        	<c:forEach var="e" items="${page.list}" varStatus="v">
-						            <tr>
-						                <td><input type="checkbox" name="ids" value="${e.testId}"/></td>
-						                <td>${e.testName}</td>
-						                <td><zhg:show  codeTp="sex" value="${e.testSex}" /></td>
-						                <td><fmt:formatDate value="${e.testDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
-						            </tr>
-					            </c:forEach>
-					        </tbody>
-					    </table>
-				    <div class="page">${page}</div>
-			     </div>
+						<div class="col-sm-4">
+							<input class="form-control" id="search" name="testName" value="${testEntity.testName }" type="text" placeholder="查询内容 回车搜索"/>
+						</div>
+						 <!-- ------------按钮组 end------------ -->
+							<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
+							<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
+							 <table class="table table-striped table-bordered table-hover table-condensed">
+								<thead>
+									<tr>
+										<th><input type="checkbox" id="checkall"/></th>
+										<th>名称</th>
+										<th>性别</th>
+										<th>时间</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:set var="vs"></c:set>
+									<c:forEach var="e" items="${page.list}" varStatus="v">
+										<tr>
+											<td><input type="checkbox" name="ids" value="${e.testId}"/></td>
+											<td>${e.testName}</td>
+											<td><zhg:show  codeTp="sex" value="${e.testSex}" /></td>
+											<td><fmt:formatDate value="${e.testDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						<div class="page">${page}</div>
+					 </div>
 			     </form>
 			</div>
 		</div>
