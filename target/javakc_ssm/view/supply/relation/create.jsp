@@ -47,7 +47,7 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="税率..." name="rate">
+									<input type="text" class="form-control" placeholder="税率..." name="rate" id="rat">
 
 								</div>
 							</div>
