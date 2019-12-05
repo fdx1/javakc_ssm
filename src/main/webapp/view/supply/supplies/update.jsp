@@ -120,9 +120,9 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label" >图片信息:</label>
                             <div class="btn-group">
-                                <label title="上传图片" for="inputImage" class="btn btn-primary">
-                                    <input type="file" accept="image/*" name="goodsPicture" id="inputImage" class="hide">
-                                    上传新图片
+                                <label title="上传图片" for="inputImage" >
+                    <%--<input type="file" accept="image/*" name="goodsPicture" id="inputImage" class="hide"  value="${suppliesEntiry.goodsPicture}">--%>
+                                       <img src="data:image/png;base64" id="inputImage" name="goodsPicture">
                                 </label>
                             </div>
                         </div>

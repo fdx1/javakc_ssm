@@ -70,7 +70,7 @@
         </select>
 
 
-        <insert id="insert">
+        <insert id="insert" >
             INSERT INTO SUPPLIES (<include refid="all_goods"/>)
             VALUES (#{goodsId},#{typeId},#{goodsName},#{goodsGuige},#{goodsJiancheng},#{goodsComment},
             #{goodsPicture},#{goodsFuma},#{goodsMold},#{goodsPact},

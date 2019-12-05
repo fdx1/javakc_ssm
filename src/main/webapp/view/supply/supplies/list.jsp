@@ -66,6 +66,10 @@
 										<td>${e.goodsState==1? '启用':'停用' }</td>
 										<td><fmt:formatDate value="${e.updateDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
 										<td>${e.createUser }</td>
+										<td><div>
+											<button type="button" class=" btn btn-info glyphicon glyphicon-wrench btn-sm">
+											</button>
+										</div></td>
 						            </tr>
 					            </c:forEach>
 					        </tbody>
